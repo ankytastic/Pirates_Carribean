@@ -10,7 +10,6 @@ if (currentActive < 1) {
 if (currentActive > circles.length) {
     currentActive = circles.length
 }
-console.log(currentActive)
 
 panels.forEach((panel) => {
     panel.addEventListener('click', () => {
@@ -21,7 +20,6 @@ panels.forEach((panel) => {
             removeActiveClasses()
             panel.classList.add('pactive')
         }
-        console.log(panel.id)
         paneltostep(panel.id)
     })
 })
@@ -71,13 +69,11 @@ function update() {
         prev.disabled = false
         next.disabled = false
     }
-    // steptopanel()
 }
 
 function paneltostep(key1) {
     for (let i = 0; i < circles.length; i++) {
         if (circles[i].innerHTML === key1) {
-            console.log(circles[i].innerHTML)
             currentActive = i + 1
             update()
         }
@@ -88,8 +84,6 @@ function steptopanel() {
     console.log(circles[currentActive - 1].innerHTML)
     for (let i = 0; i < panels.length; i++) {
         if (panels[i].id === circles[currentActive - 1].innerHTML) {
-            console.log(i)
-            console.log(panels[i])
             removeActiveClasses()
             panels[i].classList.add('pactive');
         }
